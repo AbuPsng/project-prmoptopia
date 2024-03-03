@@ -23,7 +23,7 @@ const UpdatePromptPage = () => {
         if (!promptId) return alert("Login first")
 
         try {
-            const response = await fetch(`/api/prompt/${promptId}`, {
+            const response = await fetch(`/api/prompt/${promptId?.promptId}`, {
                 method: "PATCH",
                 body: JSON.stringify({
                     prompt: post.prompt,
@@ -43,7 +43,7 @@ const UpdatePromptPage = () => {
 
     useEffect(() => {
         const getPromptDetails = async () => {
-            const response = await fetch(`/api/prompt/${promptId}`)
+            const response = await fetch(`/api/prompt/${promptId?.promptId}`)
             const data = await response.json()
             setPost({
                 prompt: data.prompt,
