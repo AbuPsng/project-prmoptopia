@@ -1,7 +1,7 @@
 "use client"
 
 import Form from "@/components/Form"
-import { useRouter } from "next/navigation"
+import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 
 const UpdatePromptPage = ({ params }) => {
