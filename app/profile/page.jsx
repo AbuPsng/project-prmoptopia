@@ -13,7 +13,7 @@ const MyProfilePage = () => {
     const [posts, setPosts] = useState([])
 
     const handleEdit = async (post) => {
-        router.push(`/update_prompt?id=${post._id}`)
+        router.push(`/update_prompt/${post._id}`)
     }
 
     const handleDelete = async (post) => {

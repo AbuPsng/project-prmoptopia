@@ -1,19 +1,17 @@
 "use client"
 
 import Form from "@/components/Form"
-import { useRouter, useSearchParams } from "next/navigation"
+import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 
-const UpdatePromptPage = () => {
+const UpdatePromptPage = ({ params }) => {
 
     const [submitting, setSubmitting] = useState(false)
     const [post, setPost] = useState({
         prompt: "",
         tag: ""
     })
-
-    const searchParams = useSearchParams()
-    const promptId = searchParams.get("id")
+    const promptId = params.id
     const router = useRouter()
 
     const editPrompt = async (e) => {
@@ -23,7 +21,7 @@ const UpdatePromptPage = () => {
         if (!promptId) return alert("Login first")
 
         try {
-            const response = await fetch(`/api/prompt/${promptId?.promptId}`, {
+            const response = await fetch(`/api/prompt/${promptId}`, {
                 method: "PATCH",
                 body: JSON.stringify({
                     prompt: post.prompt,
@@ -43,7 +41,7 @@ const UpdatePromptPage = () => {
 
     useEffect(() => {
         const getPromptDetails = async () => {
-            const response = await fetch(`/api/prompt/${promptId?.promptId}`)
+            const response = await fetch(`/api/prompt/${promptId}`)
             const data = await response.json()
             setPost({
                 prompt: data.prompt,
