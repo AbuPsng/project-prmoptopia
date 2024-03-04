@@ -2,8 +2,6 @@ import promptModel from "@/models/promptModal"
 
 export const GET = async (req, { params }) => {
     const { keyword } = params
-
-    console.log(keyword)
     try {
         const prompts = await promptModel.find({
             $or: [
