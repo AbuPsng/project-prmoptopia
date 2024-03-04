@@ -35,6 +35,7 @@ const Feed = () => {
     const handleSearchByTag = async (tag) => {
         if (!tag) return
         try {
+            setSearchText(tag)
             const response = await fetch(`/api/prompt/search/${tag}`)
             const data = await response.json()
             setPosts(data)
