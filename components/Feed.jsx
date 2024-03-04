@@ -62,7 +62,7 @@ const Feed = () => {
 
     return (
         <section className="feed">
-            <form className="relative w-full flex-center" onSubmit={handleSearch}>
+            <form className="relative w-full flex-center">
                 <input
                     type="text"
                     placeholder="Search for a tag or a username"
@@ -71,7 +71,7 @@ const Feed = () => {
                     required
                     className="search_input peer"
                 />
-                <button className="ml-4 p-2 font-semibold ">
+                <button className="ml-4 p-2 font-semibold " onClick={handleSearch}>
                     search
                 </button>
                 <button type="reset" className="ml-4 p-2 font-semibold " onClick={fetchPosts}>
