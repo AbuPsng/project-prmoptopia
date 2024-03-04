@@ -45,10 +45,15 @@ const Feed = () => {
     }
 
     const fetchPosts = async () => {
-        const response = await fetch("/api/prompt")
-        const data = await response.json()
-        setPosts(data)
-        setSearchText("")
+        try {
+            const response = await fetch("/api/prompt")
+            const data = await response.json()
+            setPosts(data)
+            setSearchText("")
+        } catch (error) {
+            console.log(error)
+        }
+
     }
 
     useEffect(() => {
